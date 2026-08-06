@@ -1,0 +1,240 @@
+---
+import '../styles/global.css';
+
+const hotelServices = [
+  {
+    icon: '/icons/services/hotels/service-1.svg',
+    title: 'Praní hotelového prádla',
+    copy: 'Povlečení, prostěradla a deky vracíme dokonale čisté, voňavé a připravené pro další hosty.',
+  },
+  {
+    icon: '/icons/services/hotels/service-2.svg',
+    title: 'Ručníky a župany',
+    copy: 'Měkké, hygienicky čisté a připravené pro wellness i hotelové pokoje.',
+  },
+  {
+    icon: '/icons/services/hotels/service-3.svg',
+    title: 'Pracovní oděvy',
+    copy: 'Pravidelné praní oděvů recepce, wellness personálu i úklidových týmů.',
+  },
+  {
+    icon: '/icons/services/hotels/service-4.svg',
+    title: 'Individuální přístup',
+    copy: 'Každý hotel funguje jinak. Přizpůsobíme svoz, objem i frekvenci vašemu provozu.',
+  },
+];
+
+const hotelSteps = [
+  {
+    number: '01',
+    title: 'Nezávazná poptávka',
+    copy: 'Vyplníte krátký formulář nebo nám zavoláte. Ozveme se a domluvíme detaily.',
+    image: '/images/services/hotels/step-1.webp',
+  },
+  {
+    number: '02',
+    title: 'Nastavení spolupráce',
+    copy: 'Společně nastavíme rozsah služeb, frekvenci svozu a sezónní kapacitu. Bez složitých smluv.',
+    image: '/images/services/hotels/step-2.webp',
+  },
+  {
+    number: '03',
+    title: 'Pravidelný svoz a praní',
+    copy: 'Prádlo profesionálně vypereme a připravíme k použití v souladu s hygienickými standardy.',
+    image: '/images/services/hotels/step-3.webp',
+  },
+  {
+    number: '04',
+    title: 'Včasné dodání zpět',
+    copy: 'Čisté prádlo dorazí zpět přesně podle domluvy. Vy se mezitím můžete věnovat hostům.',
+    image: '/images/services/hotels/step-4.webp',
+  },
+];
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Spolehlivý prádelenský servis pro hotely a wellness v Krkonoších. Praní hotelového prádla, ručníků, županů a pracovních oděvů včetně pravidelného svozu." />
+    <meta name="theme-color" content="#033e46" />
+    <meta property="og:title" content="Prádelenský servis pro hotely a wellness | Prádelna Krkonoše" />
+    <meta property="og:description" content="Čisté hotelové prádlo včas, spolehlivě a v kvalitě, kterou hosté očekávají." />
+    <meta property="og:image" content="/images/services/hotels/hero.webp" />
+    <title>Prádelenský servis pro hotely a wellness | Prádelna Krkonoše</title>
+    <link rel="icon" href="/logo.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Přejít na obsah</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/#top" aria-label="Prádelna Krkonoše – domů">
+        <img src="/logo-white.svg" alt="Prádelna Krkonoše" width="129" height="66" />
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Hlavní navigace">
+        <a href="/#pro-koho">Provozy</a>
+        <a href="#sluzby">Služby</a>
+        <a href="#jak-to-funguje">Jak to funguje</a>
+        <a href="/#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="button button--small" href="#poptavka">Nezávazná poptávka</a>
+        <div class="site-nav__contact">
+          <span>Rychlý kontakt</span>
+          <a href="tel:+420727839795">+420 727 839 795</a>
+          <a href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a>
+          <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+Vrchlabí" target="_blank" rel="noreferrer">Kpt. Jaroše 496, Vrchlabí</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero service-detail-hero" aria-labelledby="hero-title">
+        <img class="hero__media" src="/images/services/hotels/hero.webp" alt="Hotelový resort v Krkonoších" fetchpriority="high" />
+        <div class="hero__veil"></div>
+        <div class="hero__content wrap">
+          <p class="eyebrow eyebrow--light">PRO HOTELY A WELLNESS</p>
+          <h1 id="hero-title">Prádelenský servis pro hotely a wellness</h1>
+          <p class="hero__lead">Postaráme se o hotelové prádlo, ručníky, župany i pracovní oděvy. Spolehlivě, diskrétně a v kvalitě, kterou vaši hosté očekávají při každém pobytu.</p>
+          <div class="hero__actions">
+            <a class="button" href="#poptavka">Nezávazná poptávka</a>
+            <a class="text-link text-link--light" href="tel:+420727839795">+420 727 839 795</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sluzby" class="section hotel-services">
+        <div class="wrap hotel-services__layout">
+          <div class="hotel-services__content reveal">
+            <div class="section-heading">
+              <p class="eyebrow">NAŠE SLUŽBY</p>
+              <h2>Komplexní péče o váš textil</h2>
+            </div>
+            <div class="hotel-service-list">
+              {hotelServices.map((service) => (
+                <article class="hotel-service-item">
+                  <img src={service.icon} alt="" width="64" height="64" />
+                  <div>
+                    <h3>{service.title}</h3>
+                    <p>{service.copy}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+          <figure class="hotel-services__image reveal" style="--delay:80ms">
+            <img src="/images/services/hotels/service.webp" alt="Čistý hotelový pokoj připravený pro hosty" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Vybraní klienti">
+        <div class="wrap trust-strip__inner">
+          <div class="trust-strip__intro reveal">
+            <p class="eyebrow">NAŠI PARTNEŘI</p>
+            <h2>Partneři, kteří se vrací.</h2>
+            <p>Důvěřují nám hotely, penziony i restaurace z Krkonoš.</p>
+          </div>
+          <div class="trust-strip__logos reveal">
+            <div class="logo-row">
+              {[1, 2, 3, 4].map((logo) => <img src={`/icons/client-${logo}.svg`} alt="Partner Prádelny Krkonoše" loading="lazy" />)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hotel-about">
+        <div class="wrap hotel-about__layout">
+          <figure class="hotel-about__image reveal">
+            <img src="/images/services/hotels/about.webp" alt="Profesionální hotelové prádlo v prádelně" loading="lazy" />
+          </figure>
+          <div class="hotel-about__content reveal" style="--delay:80ms">
+            <p class="eyebrow">O NÁS</p>
+            <h2>Partner, na kterého se můžete spolehnout i během hlavní sezóny</h2>
+            <div class="hotel-about__copy">
+              <p>Obsazenost hotelu se může měnit ze dne na den. Proto stavíme spolupráci na spolehlivosti, pravidelném svozu a rychlé reakci na potřeby provozu.</p>
+              <p>Ať provozujete wellness resort nebo rodinný hotel, zajistíme čisté prádlo bez zbytečných starostí.</p>
+            </div>
+            <a class="button" href="#poptavka">Nezávazná poptávka</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="jak-to-funguje" class="section process hotel-process">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <p class="eyebrow">JAK TO FUNGUJE</p>
+            <h2>Jak probíhá spolupráce krok za krokem?</h2>
+            <p class="lead">Vše nastavíme tak, aby vás provoz prádla nezdržoval ani v plné sezóně.</p>
+          </div>
+          <ol class="steps hotel-steps">
+            {hotelSteps.map((step, index) => (
+              <li class="step reveal" style={`--delay:${index * 80}ms`}>
+                <span class="hotel-step__number">{step.number}</span>
+                <img src={step.image} alt="" loading="lazy" />
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="kontakt" class="section contact section--tint">
+        <div class="wrap contact__layout">
+          <div class="contact__info reveal">
+            <p class="eyebrow">KONTAKT</p>
+            <h2>Máte zájem o spolupráci?</h2>
+            <p class="lead">Spolupráci nastavujeme individuálně a v souladu s hygienickými standardy provozního praní.</p>
+            <address>
+              <a href="tel:+420727839795"><span>Telefon</span><strong>+420 727 839 795</strong></a>
+              <a href="mailto:info@pradelnakrkonose.cz"><span>E-mail</span><strong>info@pradelnakrkonose.cz</strong></a>
+              <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+Vrchlabí" target="_blank" rel="noreferrer"><span>Adresa</span><strong>Kpt. Jaroše 496, 543 01 Vrchlabí 1</strong></a>
+            </address>
+            <a class="contact__map" href="https://maps.google.com/?q=Kpt.+Jaroše+496,+Vrchlabí" target="_blank" rel="noreferrer" aria-label="Otevřít adresu v mapách">
+              <img src="/images/map.webp" alt="Mapa s polohou Prádelny Krkonoše ve Vrchlabí" loading="lazy" />
+              <span class="contact__pin" aria-hidden="true"></span>
+              <span class="contact__map-label">Otevřít v mapách ↗</span>
+            </a>
+          </div>
+
+          <form id="poptavka" class="inquiry-form reveal" novalidate>
+            <div class="form-heading"><p class="eyebrow">NEZÁVAZNÁ POPTÁVKA</p><h3>Řekněte nám o vašem provozu</h3></div>
+            <label>Typ provozu
+              <select name="provoz" required>
+                <option value="Hotel / wellness" selected>Hotel / wellness</option>
+                <option>Penzion / apartmány</option><option>Horská chata / chalupa</option><option>Restaurace / gastro</option><option>Jiný provoz</option>
+              </select>
+            </label>
+            <label>Jméno a příjmení
+              <input name="jmeno" autocomplete="name" placeholder="Jan Novák" required />
+            </label>
+            <div class="form-row">
+              <label>Telefon<input type="tel" name="telefon" autocomplete="tel" placeholder="+420 777 000 000" required /></label>
+              <label>E-mail<input type="email" name="email" autocomplete="email" placeholder="novak@email.cz" required /></label>
+            </div>
+            <label>Poznámka <span>(nepovinné)</span>
+              <textarea name="poznamka" rows="5" placeholder="Přibližný objem, kapacita hotelu, požadovaný rytmus svozu…"></textarea>
+            </label>
+            <label class="consent"><input type="checkbox" name="souhlas" required /><span>Souhlasím se zpracováním údajů za účelem vyřízení poptávky.</span></label>
+            <div class="form-actions"><button class="button" type="submit">Odeslat poptávku</button><a class="button button--outline" href="tel:+420727839795">Raději zavolám</a></div>
+            <p class="form-note">Ozveme se do 24 hodin. Bez závazků.</p>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer__grid">
+        <div class="footer__brand"><img src="/logo-white.svg" alt="Prádelna Krkonoše" width="129" height="66" /><p>Spolupracujeme v souladu s hygienickými standardy provozního praní.</p></div>
+        <div><h2>Rychlá navigace</h2><nav><a href="#sluzby">Služby</a><a href="/#pro-koho">Typy provozů</a><a href="#jak-to-funguje">Jak to funguje</a><a href="#kontakt">Kontakt</a></nav></div>
+        <div><h2>Kontakt</h2><a href="tel:+420727839795">+420 727 839 795</a><a href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a><p>Kpt. Jaroše 496, 543 01 Vrchlabí 1</p><p>IČO: 05593034</p></div>
+      </div>
+      <div class="wrap footer__bottom"><span>© 2026 Prádelna Krkonoše</span><span>Ochrana osobních údajů</span><span>Cookies</span><span>Vytvořeno: <strong>Jonáš Rech</strong></span></div>
+    </footer>
+
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>
