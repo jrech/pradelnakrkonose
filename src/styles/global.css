@@ -296,7 +296,7 @@ h3 { font-size: 1.75rem; }
   .site-nav__contact a { border: 0; padding: 0; color: var(--ink); font-family: var(--body); font-size: .8rem; font-weight: 500; letter-spacing: 0; line-height: 1.4; opacity: 1; transform: none; }
   .site-nav.is-open .site-nav__contact { opacity: 1; transform: translateY(0); transition-delay: 280ms; }
   .hero { min-height: 100vh; min-height: 100svh; }
-  .hero__content { display: flex; flex-direction: column; align-items: center; padding-bottom: 72px; text-align: center; }
+  .hero__content { display: flex; flex-direction: column; align-items: center; padding-bottom: 112px; text-align: center; }
   .hero__scroll { display: none; }
   .hero__partners-inner { min-height: 76px; gap: 16px; }
   .hero__partners-inner > p { flex-basis: auto; font-size: .65rem; }
