@@ -41,8 +41,8 @@ h3 { font-size: 1.75rem; }
 .eyebrow { margin-bottom: 16px; color: var(--teal); font-size: .75rem; font-weight: 600; letter-spacing: .13em; line-height: 1.2; }
 .eyebrow--light { color: #b5eef0; }
 .lead { max-width: 640px; color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
-.section { padding-block: clamp(96px, 10vw, 128px); }
-.section--tint { background: var(--mist); }
+.section { padding-block: 120px; }
+.section--tint { padding-block: 160px; background: var(--mist); }
 .section-heading { max-width: 760px; margin-bottom: 64px; }
 .section-heading--split { display: grid; grid-template-columns: 1.3fr .7fr; align-items: end; max-width: none; gap: 80px; }
 .section-heading--split > p { margin-bottom: 8px; color: var(--muted); }
@@ -103,7 +103,7 @@ h3 { font-size: 1.75rem; }
 .client-card:focus-within { flex-grow: 2.4; }
 .client-card:focus-within .client-card__details { grid-template-rows: 1fr; margin-top: 16px; opacity: 1; transform: translateY(0); transition-delay: 100ms; }
 
-.trust-strip { padding-block: clamp(96px, 10vw, 128px); background: var(--mist); }
+.trust-strip { padding-block: 160px; background: var(--mist); }
 .trust-strip__inner { display: block; }
 .trust-strip__intro { max-width: 650px; margin: 0 auto 48px; text-align: center; }
 .trust-strip__intro .eyebrow { margin-bottom: 16px; }
@@ -259,6 +259,7 @@ h3 { font-size: 1.75rem; }
   :root { --wrap: min(100% - 36px, 680px); }
   body { font-size: 16px; }
   .section { padding-block: 72px; }
+  .section--tint { padding-block: 88px; }
   .site-header { height: 80px; padding-inline: 20px; }
   .brand img { width: 92px; }
   .menu-button { position: relative; z-index: 102; display: grid; width: 52px; height: 52px; place-items: center; border-color: rgba(255,255,255,.55); border-radius: 50%; padding: 0; font-size: .78rem; letter-spacing: .02em; transition: color .25s, background .25s, border-color .25s, transform .25s; }
@@ -321,7 +322,7 @@ h3 { font-size: 1.75rem; }
   .site-nav .button { min-height: 52px; margin-top: 24px; padding-block: 12px; }
   .client-grid, .steps { grid-template-columns: 1fr; }
   .client-card { height: 460px; }
-  .trust-strip { padding-block: 64px; }
+  .trust-strip { padding-block: 88px; }
   .logo-row { grid-template-columns: repeat(2, 1fr); }
   .logo-row img { height: 66px; }
   .service__image { min-height: 520px; }
