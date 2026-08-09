@@ -6,3 +6,4 @@ skills-lock.json
 video1.mp4
 .DS_Store
 *.log
+tmp/
