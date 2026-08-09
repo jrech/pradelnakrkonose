@@ -41,7 +41,7 @@ h3 { font-size: 1.75rem; }
 .eyebrow { margin-bottom: 16px; color: var(--teal); font-size: .75rem; font-weight: 600; letter-spacing: .13em; line-height: 1.2; }
 .eyebrow--light { color: #b5eef0; }
 .lead { max-width: 640px; color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
-.section { padding-block: 120px; }
+.section { padding-block: 120px; background: #fafafa; }
 .section--tint { padding-block: 160px; background: var(--mist); }
 .section-heading { max-width: 760px; margin-bottom: 64px; }
 .section-heading--split { display: grid; grid-template-columns: 1.3fr .7fr; align-items: end; max-width: none; gap: 80px; }
@@ -67,8 +67,9 @@ h3 { font-size: 1.75rem; }
 .menu-button { display: none; border: 1px solid rgba(255,255,255,.5); border-radius: 8px; padding: 8px 16px; color: white; background: transparent; font-weight: 600; }
 .site-nav__contact { display: none; }
 
-.hero { position: sticky; z-index: 0; top: 0; display: flex; min-height: 100vh; min-height: 100svh; align-items: flex-end; overflow: hidden; color: white; background: #12383b; }
+.hero { position: relative; z-index: 0; display: flex; min-height: 100vh; min-height: 100svh; align-items: flex-end; overflow: hidden; color: white; background: #12383b; }
 .hero__media, .hero__veil { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero__media, .hero__veil { position: fixed; }
 .hero__media { object-fit: cover; object-position: center 55%; scale: 1.01; }
 .hero__veil { background: linear-gradient(90deg, rgba(0,15,16,.72) 0%, rgba(0,15,16,.32) 52%, rgba(0,15,16,.16) 100%), linear-gradient(0deg, rgba(0,12,13,.45) 0%, transparent 45%); }
 .hero__content { position: relative; z-index: 2; padding-bottom: clamp(144px, 15vh, 192px); }
@@ -298,6 +299,7 @@ main > section:not(.hero), .footer { position: relative; z-index: 1; }
   .site-nav__contact a { border: 0; padding: 0; color: var(--ink); font-family: var(--body); font-size: .8rem; font-weight: 500; letter-spacing: 0; line-height: 1.4; opacity: 1; transform: none; }
   .site-nav.is-open .site-nav__contact { opacity: 1; transform: translateY(0); transition-delay: 280ms; }
   .hero { position: relative; min-height: 100vh; min-height: 100svh; }
+  .hero__media, .hero__veil { position: absolute; }
   .hero__content { display: flex; flex-direction: column; align-items: center; padding-bottom: 96px; text-align: center; }
   .hero__scroll { display: none; }
   .hero__partners { width: 100%; margin-top: 48px; }
