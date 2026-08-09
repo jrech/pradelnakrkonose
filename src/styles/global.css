@@ -97,7 +97,7 @@ h3 { font-size: 1.75rem; }
   .client-grid:has(.client-card:hover) .client-card:not(:hover) { flex-grow: .82; }
   .client-card:hover { flex-grow: 2.4; }
   .client-card:hover .client-card__image::after { background: linear-gradient(0deg, rgba(8,25,27,.9) 0%, rgba(8,25,27,.34) 66%, rgba(8,25,27,.1) 100%); }
-  .client-card:hover .client-card__image img { transform: scale(1.025); }
+  .client-card:hover .client-card__image img { transform: scale(1.01); }
   .client-card:hover .client-card__details { grid-template-rows: 1fr; margin-top: 16px; opacity: 1; transform: translateY(0); transition-delay: 100ms; }
 }
 .client-card:focus-within { flex-grow: 2.4; }
