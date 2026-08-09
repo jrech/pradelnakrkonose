@@ -114,15 +114,14 @@ h3 { font-size: 1.75rem; }
 .logo-row { display: grid; grid-template-columns: repeat(4, 1fr); align-items: center; gap: clamp(24px, 5vw, 80px); }
 .logo-row img { width: 100%; height: 76px; object-fit: contain; filter: grayscale(1); opacity: .64; transition: opacity .2s ease, transform .2s var(--ease-out); }
 
-.service__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, .95fr); align-items: stretch; gap: clamp(64px, 8vw, 96px); }
+.service__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, .95fr); align-items: stretch; gap: clamp(64px, 8vw, 96px); }
 .service__content { padding-block: 16px; }
 .service__content h2 { max-width: 620px; }
-.benefit-list { display: grid; margin: 48px 0 40px; }
-.benefit { display: grid; grid-template-columns: 56px 1fr; align-items: start; gap: 24px; border-bottom: 1px solid var(--line); padding: 32px 0; }
-.benefit:first-child { padding-top: 0; }
-.benefit:last-child { border-bottom: 0; padding-bottom: 0; }
-.benefit img { width: 44px; height: 44px; padding: 0; border-radius: 0; background: none; }
-.benefit h3 { margin: 0 0 8px; font-family: var(--body); font-size: 1.08rem; font-weight: 600; letter-spacing: 0; }
+.benefit-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 48px 0 24px; gap: 16px; }
+.benefit { display: block; min-height: 208px; border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+.benefit img { width: 64px; height: 64px; margin-bottom: 24px; }
+.benefit h3 { margin: 0 0 12px; font-family: var(--body); font-size: 1.08rem; font-weight: 600; letter-spacing: 0; }
+.benefit h3::after { display: block; width: 32px; height: 2px; margin-top: 14px; background: var(--teal); content: ''; }
 .benefit p { max-width: 52ch; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.65; }
 .service__image { position: relative; min-height: 760px; margin: 0; overflow: hidden; border-radius: 16px; }
 .service__image > img { width: 100%; height: 100%; object-fit: cover; }
@@ -326,8 +325,8 @@ h3 { font-size: 1.75rem; }
   .logo-row { grid-template-columns: repeat(2, 1fr); }
   .logo-row img { height: 66px; }
   .service__image { min-height: 520px; }
-  .benefit { grid-template-columns: 48px 1fr; gap: 16px; padding-block: 24px; }
-  .benefit img { width: 44px; height: 44px; }
+  .benefit { min-height: 0; padding: 24px; }
+  .benefit img { width: 56px; height: 56px; margin-bottom: 20px; }
   .about__photos { min-height: 448px; }
   .step > img { height: 300px; }
   .hotel-services__image { min-height: 520px; }
