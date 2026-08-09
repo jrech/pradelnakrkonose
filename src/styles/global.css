@@ -77,6 +77,13 @@ h3 { font-size: 1.75rem; }
 .hero__actions { display: flex; align-items: center; gap: 24px; }
 .hero__scroll { position: absolute; z-index: 2; right: max(24px, calc((100vw - 1280px) / 2)); bottom: 48px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.85); font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; writing-mode: vertical-rl; }
 .hero__scroll span { width: auto; height: auto; color: rgba(255,255,255,.9); font-size: 1rem; line-height: 1; writing-mode: horizontal-tb; }
+.hero__partners { position: absolute; z-index: 2; right: 0; bottom: 0; left: 0; border-top: 1px solid rgba(255,255,255,.18); background: rgba(0,15,16,.2); }
+.hero__partners-inner { display: flex; min-height: 88px; align-items: center; gap: clamp(32px, 7vw, 96px); }
+.hero__partners-inner > p { flex: 0 0 220px; margin: 0; color: rgba(255,255,255,.82); font-size: .72rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
+.hero__partners-window { min-width: 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent); }
+.hero__partners-track { display: flex; width: max-content; align-items: center; gap: clamp(40px, 6vw, 88px); animation: hero-partners-marquee 36s linear infinite; }
+.hero__partners-track img { flex: 0 0 auto; width: 112px; height: 42px; object-fit: contain; filter: brightness(0) invert(1); opacity: .7; }
+@keyframes hero-partners-marquee { to { transform: translateX(-50%); } }
 
 .client-grid { display: flex; align-items: stretch; gap: 16px; }
 .client-card { position: relative; min-width: 0; flex: 1 1 0; height: 520px; overflow: hidden; border-radius: 16px; color: white; background: var(--ink); transition: flex .6s var(--ease-out); }
@@ -236,6 +243,7 @@ h3 { font-size: 1.75rem; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
   .reveal, .hero__content > * { opacity: 1; }
+  .hero__partners-track { animation: none; }
 }
 
 @media (max-width: 1050px) {
@@ -290,6 +298,10 @@ h3 { font-size: 1.75rem; }
   .hero { min-height: 100vh; min-height: 100svh; }
   .hero__content { display: flex; flex-direction: column; align-items: center; padding-bottom: 72px; text-align: center; }
   .hero__scroll { display: none; }
+  .hero__partners-inner { min-height: 76px; gap: 16px; }
+  .hero__partners-inner > p { flex-basis: auto; font-size: .65rem; }
+  .hero__partners-track { gap: 32px; }
+  .hero__partners-track img { width: 88px; height: 34px; }
   .section-heading, .section-heading--split { margin-bottom: 48px; }
   .section-heading--split, .trust-strip__inner, .service__layout, .about__layout, .faq__layout, .contact__layout { grid-template-columns: 1fr; gap: 48px; }
   .hotel-services__layout, .hotel-about__layout { grid-template-columns: 1fr; gap: 48px; }
