@@ -116,13 +116,21 @@ const faqs = [
           <div class="client-grid">
             {clients.map((client, index) => (
               <article class="client-card reveal" style={`--delay:${index * 70}ms`}>
-                <div class="client-card__image">
-                  <img src={client.image} alt={client.title} loading="lazy" style={`object-position:${client.position}`} />
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
-                <h3>{client.title}</h3>
-                <p>{client.copy}</p>
-                <a class="text-link" href={client.href}>Zjistit více <span aria-hidden="true">→</span></a>
+                <a class="client-card__link" href={client.href}>
+                  <div class="client-card__image">
+                    <img src={client.image} alt="" loading="lazy" style={`object-position:${client.position}`} />
+                  </div>
+                  <span class="client-card__number">{String(index + 1).padStart(2, '0')}</span>
+                  <div class="client-card__content">
+                    <h3>{client.title}</h3>
+                    <div class="client-card__details">
+                      <div class="client-card__details-inner">
+                        <p>{client.copy}</p>
+                        <span class="text-link">Zjistit více <span aria-hidden="true">→</span></span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </article>
             ))}
           </div>
