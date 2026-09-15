@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import SegmentLandingPage from '../components/SegmentLandingPage.astro';
+
+const chaty = {
+  meta: {
+    title: 'Praní prádla pro chaty a chalupy | Prádelna Krkonoše',
+    description: 'Prádelenský servis pro chaty a chalupy v Krkonoších. Čisté prádlo připravíme podle turnusů, víkendů a hlavní sezóny.',
+    ogDescription: 'Čisté prádlo připravené na další hosty. Svoz přizpůsobíme turnusům, víkendům i sezóně.',
+    ogImage: '/images/client-cottage.webp',
+  },
+  hero: {
+    eyebrow: 'PRO CHATY A CHALUPY',
+    title: 'Prádelenský servis pro chaty a chalupy',
+    copy: 'Čisté prádlo připravené na další hosty. Svoz přizpůsobíme turnusům, víkendům i hlavní sezóně.',
+    image: '/images/client-cottage.webp',
+    imageAlt: 'Horská chalupa v Krkonoších',
+  },
+  services: {
+    title: 'Prádlo připravené pro další hosty',
+    copy: 'Postaráme se o prádlo mezi jednotlivými turnusy, abyste se mohli soustředit na provoz objektu.',
+    image: '/images/service.webp',
+    imageAlt: 'Provozní prádelna s připraveným textilem',
+    items: [
+      { number: '01', title: 'Ložní prádlo', copy: 'Povlečení a prostěradla připravená pro každý nový turnus.' },
+      { number: '02', title: 'Ručníky', copy: 'Čisté ručníky připravené pro každý nový turnus.' },
+      { number: '03', title: 'Provozní textil', copy: 'Prádlo a textil potřebný pro úklid a běžný chod objektu.' },
+      { number: '04', title: 'Flexibilní svoz', copy: 'Režim přizpůsobíme turnusům, víkendům a sezónní obsazenosti.' },
+    ],
+  },
+  needs: {
+    eyebrow: 'PRO HORSKÉ UBYTOVÁNÍ',
+    title: 'Víkend plný hostů nemusí znamenat starosti s prádlem.',
+    items: [
+      { number: '01', title: 'Turnusy nejsou každý týden stejné', copy: 'Svoz nastavíme podle toho, kdy se u vás hosté skutečně střídají.' },
+      { number: '02', title: 'V sezóně počítáme s vyšším objemem', copy: 'Režim spolupráce dokážeme přizpůsobit vytíženým obdobím.' },
+      { number: '03', title: 'Prádlo nemusíte vozit sami', copy: 'Vyzvedneme ho u provozu a čisté přivezeme zpět.' },
+    ],
+  },
+  season: {
+    eyebrow: 'VÍKENDY A SEZÓNA',
+    title: 'Připravení na víkendy i hlavní sezónu',
+    copy: [
+      'U horského ubytování se obsazenost může během několika dnů výrazně změnit.',
+      'Proto nastavíme svoz tak, aby odpovídal vašim turnusům a sezónnímu provozu.',
+    ],
+    image: '/images/hero.webp',
+    imageAlt: 'Dodávka Prádelny Krkonoše na horské silnici',
+  },
+  process: {
+    title: 'Jak probíhá spolupráce krok za krokem?',
+    copy: 'Vše nastavíme podle turnusů, víkendů a požadované četnosti svozu.',
+    steps: [
+      { number: '01', title: 'Nezávazná poptávka', copy: 'Řeknete nám, co váš objekt potřebuje.', image: '/images/step-1.webp' },
+      { number: '02', title: 'Nastavení spolupráce', copy: 'Domluvíme četnost svozu, množství a způsob předání.', image: '/images/step-2.webp' },
+      { number: '03', title: 'Pravidelný svoz a praní', copy: 'Prádlo vyzvedneme a postaráme se o jeho vyprání a přípravu.', image: '/images/step-3.webp' },
+      { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/step-4.webp' },
+    ],
+  },
+  faqs: [
+    ['Lze svoz nastavit podle turnusů hostů?', 'Ano. Termíny nastavíme podle střídání hostů, víkendů a sezónního provozu.'],
+    ['Svážíte prádlo i z menších ubytovacích zařízení?', 'Ano. Konkrétní režim a trasu domluvíme podle místa a objemu prádla.'],
+    ['Jaké druhy prádla perete?', 'Pereme ložní prádlo, ručníky, osušky a provozní textil pro běžný chod objektu.'],
+    ['Jak funguje svoz během hlavní sezóny?', 'Kapacitu i četnost svozu naplánujeme s ohledem na vytížená období.'],
+    ['Je stanovené minimální množství?', 'Minimum řešíme individuálně podle typu textilu, četnosti svozu a trasy.'],
+    ['Kam pro prádlo přijedete?', 'Sídlíme ve Vrchlabí a obsluhujeme horské provozy po Krkonoších a v blízkém okolí.'],
+  ] as Array<[string, string]>,
+  faqIntro: 'Praktické informace o praní a svozu pro chaty a chalupy.',
+  formType: 'Horská chata / chalupa',
+  formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
+};
+---
+
+<SegmentLandingPage config={chaty} />

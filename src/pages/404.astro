@@ -1,0 +1,31 @@
+---
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SeoHead
+      title="Stránka nenalezena | Prádelna Krkonoše"
+      description="Požadovaná stránka nebyla nalezena. Vraťte se na web Prádelny Krkonoše."
+      image="/images/hero.webp"
+      path="/404"
+    />
+    <meta name="robots" content="noindex,follow" />
+    <title>Stránka nenalezena | Prádelna Krkonoše</title>
+  </head>
+  <body>
+    <main id="main" class="section">
+      <div class="wrap" style="max-width: 760px;" data-page-intro>
+        <p class="eyebrow">404</p>
+        <h1>Tuhle stránku jsme nenašli.</h1>
+        <p class="lead">Zkuste se vrátit na úvod nebo se podívejte na naše služby pro provozy.</p>
+        <a class="button" href="/">Zpět na úvod</a>
+      </div>
+    </main>
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SeoHead
+      title="Ochrana osobních údajů | Prádelna Krkonoše"
+      description="Informace o zpracování osobních údajů při odeslání nezávazné poptávky Prádelně Krkonoše."
+      image="/images/hero.webp"
+      path="/ochrana-osobnich-udaju"
+    />
+    <title>Ochrana osobních údajů | Prádelna Krkonoše</title>
+    <link rel="icon" href="/logo.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Přejít na obsah</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/#top" aria-label="Prádelna Krkonoše, domů">
+        <img src="/logo-white.svg" alt="Prádelna Krkonoše" width="129" height="66" />
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Hlavní navigace">
+        <a href="/#pro-koho">Provozy</a>
+        <a href="/#sluzby">Služby</a>
+        <a href="/#jak-to-funguje">Jak to funguje</a>
+        <a href="/o-nas">O nás</a>
+        <a href="/kontakt">Kontakt</a>
+        <a class="button button--small" href="/kontakt#poptavka">Nezávazná poptávka</a>
+        <div class="site-nav__contact">
+          <span>Rychlý kontakt</span>
+          <a href="tel:+420773798008">+420 773 798 008</a>
+          <a href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a>
+          <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer">Kpt. Jaroše 496, 543 01 Vrchlabí 1</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="section llm-info" aria-labelledby="privacy-title">
+        <div class="wrap llm-info__layout" data-page-intro>
+          <p class="eyebrow">OCHRANA OSOBNÍCH ÚDAJŮ</p>
+          <h1 id="privacy-title">Ochrana osobních údajů</h1>
+          <div class="llm-info__content">
+            <section>
+              <h2>1. Správce osobních údajů</h2>
+              <p>Správcem vašich osobních údajů je Prádelna Krkonoše (provozovatel webu a služeb). S dotazy k ochraně údajů se můžete obrátit na: <a class="text-link" href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a>, telefon <a class="text-link" href="tel:+420773798008">+420 773 798 008</a>, adresa Kpt. Jaroše 496, 543 01 Vrchlabí 1.</p>
+            </section>
+            <section>
+              <h2>2. Jaká data zpracováváme</h2>
+              <p>Na tomto webu zpracováváme osobní údaje v souvislosti s kontaktním formulářem (nezávazná poptávka). Jedná se o:</p>
+              <ul>
+                <li>jméno a příjmení</li>
+                <li>e-mailovou adresu</li>
+                <li>telefonní číslo</li>
+                <li>typ provozu (hotel, penzion, restaurace, chata, jiné)</li>
+                <li>text zprávy (poznámka k poptávce)</li>
+              </ul>
+              <p>Tato data vyplníte dobrovolně při odeslání formuláře. Slouží výhradně k vyřízení vaší poptávky a k případné další komunikaci ohledně spolupráce.</p>
+            </section>
+            <section>
+              <h2>3. Účel a právní základ zpracování</h2>
+              <p>Údaje z kontaktního formuláře zpracováváme za účelem vyřízení vaší poptávky a nabídky našich služeb (prádelenský servis pro hotely, penziony, restaurace a další provozy).</p>
+              <p>Právním základem je váš souhlas (odesláním formuláře) a oprávněný zájem správce na odpovědi na obchodní poptávku.</p>
+            </section>
+            <section>
+              <h2>4. Doba uchování</h2>
+              <p>Osobní údaje z kontaktního formuláře uchováváme po dobu nezbytnou k vyřízení poptávky a případné uzavření či plnění spolupráce, nejdéle však 3 roky od poslední komunikace, pokud zákon neukládá povinnost je uchovávat déle.</p>
+            </section>
+            <section>
+              <h2>5. Vaše práva</h2>
+              <p>V souladu s GDPR máte právo na přístup ke svým údajům, jejich opravu, výmaz, omezení zpracování, přenositelnost údajů a právo vznést námitku. Můžete také odvolat souhlas. Pro uplatnění práv nás kontaktujte na výše uvedeném e-mailu nebo adrese.</p>
+              <p>Máte též právo podat stížnost u dozorového úřadu, Úřadu pro ochranu osobních údajů (ÚOOÚ), na <a class="text-link" href="https://www.uoou.cz" target="_blank" rel="noreferrer">www.uoou.cz</a>.</p>
+            </section>
+            <section>
+              <h2>6. Předávání údajů a zabezpečení</h2>
+              <p>Vaše údaje nepředáváme třetím stranám pro marketingové účely. Mohou k nim mít přístup pouze technické nebo právní subjekty zajišťující provoz webu a komunikace (např. e-mailový nebo hostingový poskytovatel) v rozsahu nutném pro poskytování služeb.</p>
+              <p>Komunikace přes web je vedena s ohledem na zabezpečení dat.</p>
+            </section>
+            <section>
+              <p><strong>Poslední aktualizace:</strong> březen 2025. Tyto zásady můžeme v případě potřeby doplnit nebo upravit; aktuální verze je vždy zveřejněna na této stránce.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

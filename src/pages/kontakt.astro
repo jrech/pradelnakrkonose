@@ -1,0 +1,121 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SeoHead
+      title="Kontakt | Prádelna Krkonoše"
+      description="Kontaktujte Prádelnu Krkonoše ve Vrchlabí a domluvte si praní a pravidelný svoz prádla pro váš provoz."
+      image="/images/hero.webp"
+      path="/kontakt"
+    />
+    <title>Kontakt | Prádelna Krkonoše</title>
+    <link rel="icon" href="/logo.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Přejít na obsah</a>
+
+    <header class="site-header is-scrolled" data-header>
+      <a class="brand" href="/#top" aria-label="Prádelna Krkonoše, domů">
+        <img src="/logo-white.svg" alt="Prádelna Krkonoše" width="129" height="66" />
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Hlavní navigace">
+        <a href="/#pro-koho">Provozy</a>
+        <a href="/#sluzby">Služby</a>
+        <a href="/#jak-to-funguje">Jak to funguje</a>
+        <a href="/o-nas">O nás</a>
+        <a href="/kontakt" aria-current="page">Kontakt</a>
+        <a class="button button--small" href="#poptavka">Nezávazná poptávka</a>
+        <div class="site-nav__contact">
+          <span>Rychlý kontakt</span>
+          <a href="tel:+420773798008">+420 773 798 008</a>
+          <a href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a>
+          <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer">Kpt. Jaroše 496, 543 01 Vrchlabí 1</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="section contact-page__hero" aria-labelledby="contact-title">
+        <div class="wrap contact-page__intro" data-page-intro>
+          <p class="eyebrow">KONTAKT</p>
+          <h1 id="contact-title">Pojďme se domluvit.</h1>
+          <p class="lead">Řekněte nám, jaký provoz máte a co potřebujete. Ozveme se a společně nastavíme rozsah služby i svoz.</p>
+        </div>
+      </section>
+
+      <section class="section contact-page__main" aria-labelledby="contact-details-title">
+        <div class="wrap contact-page__layout">
+          <div class="contact-page__details reveal">
+            <p class="eyebrow">PRÁDELNA KRKONOŠE</p>
+            <h2 id="contact-details-title">Kontakt přímo na nás</h2>
+            <address>
+              <a href="tel:+420773798008"><span>Telefon</span><strong>+420 773 798 008</strong></a>
+              <a href="mailto:info@pradelnakrkonose.cz"><span>E-mail</span><strong>info@pradelnakrkonose.cz</strong></a>
+              <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer"><span>Adresa</span><strong>Kpt. Jaroše 496<br />543 01 Vrchlabí 1</strong></a>
+            </address>
+            <div class="contact-page__hours" aria-label="Otevírací doba">
+              <p><span>Po–Pá</span><strong>7:30–14:00</strong></p>
+              <p><span>So–Ne</span><strong>Zavřeno</strong></p>
+            </div>
+            <p class="contact-page__note">Spolupráce začíná nezávaznou poptávkou. Ozveme se a projdeme s vámi možnosti pro váš provoz.</p>
+          </div>
+
+          <form id="poptavka" class="inquiry-form reveal" novalidate>
+            <div class="form-heading"><h2>Řekněte nám o svém provozu</h2><p>Stačí několik základních informací. Ozveme se zpravidla do 24 hodin.</p></div>
+            <label>Typ provozu
+              <select name="provoz" required>
+                <option value="">Vyberte typ provozu</option>
+                <option value="Hotel / wellness">Hotel / wellness</option>
+                <option value="Penzion / apartmány">Penzion / apartmány</option>
+                <option value="Horská chata / chalupa">Horská chata / chalupa</option>
+                <option value="Restaurace / gastro">Restaurace / gastro</option>
+                <option value="Jiný provoz">Jiný provoz</option>
+              </select>
+            </label>
+            <label>Jméno / firma
+            <input name="jmeno" autocomplete="name" placeholder="Jan Novák / Hotel Krkonoše" required />
+            </label>
+            <div class="form-row">
+              <label>Telefon<input type="tel" name="telefon" autocomplete="tel" placeholder="+420 777 000 000" required /></label>
+              <label>E-mail<input type="email" name="email" autocomplete="email" placeholder="novak@email.cz" required /></label>
+            </div>
+            <label>Zpráva <span>(nepovinné)</span>
+              <textarea name="poznamka" rows="5" placeholder="Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct."></textarea>
+            </label>
+            <p class="consent-note">Odesláním formuláře souhlasíte se zpracováním osobních údajů za účelem vyřízení poptávky. <a href="/ochrana-osobnich-udaju">Více o ochraně osobních údajů</a>.</p>
+            <div class="form-actions"><button class="button" type="submit">Odeslat poptávku</button><a class="button button--outline" href="tel:+420773798008">Raději zavolám</a></div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section section--tint contact-page__area" aria-labelledby="contact-area-title">
+        <div class="wrap contact-page__area-layout">
+          <div class="contact-page__area-copy reveal">
+            <p class="eyebrow">SVOZ V KRKONOŠÍCH</p>
+            <h2 id="contact-area-title">Nejste si jistí, jestli k vám svážíme?</h2>
+            <p class="lead">Napište nám nebo zavolejte. Možnosti svozu závisí na lokalitě, množství prádla a rozsahu spolupráce.</p>
+            <p>Obsluhujeme firemní zákazníky ve Vrchlabí, Špindlerově Mlýně a dalších částech Krkonoš podle domluvené svozové oblasti.</p>
+          </div>
+          <a class="contact__map reveal reveal--media" href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer" aria-label="Otevřít adresu v mapách">
+            <img src="/images/map.webp" alt="Mapa s polohou Prádelny Krkonoše ve Vrchlabí" loading="lazy" />
+            <span class="contact__pin" aria-hidden="true"></span>
+            <span class="contact__map-label">Otevřít v mapách ↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

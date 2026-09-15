@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import SegmentLandingPage from '../components/SegmentLandingPage.astro';
+
+const pensiony = {
+  meta: {
+    title: 'Praní prádla pro penziony a apartmány | Prádelna Krkonoše',
+    description: 'Pravidelný prádelenský servis pro penziony a apartmány v Krkonoších. Svoz nastavíme podle obsazenosti, turnusů a sezóny.',
+    ogDescription: 'Čisté prádlo mezi pobyty hostů. Svoz přizpůsobíme obsazenosti i rytmu vašeho ubytování.',
+    ogImage: '/images/client-pension.webp',
+  },
+  hero: {
+    eyebrow: 'PRO PENZIONY A APARTMÁNY',
+    title: 'Prádelenský servis pro penziony a apartmány',
+    copy: 'Postaráme se o prádlo mezi jednotlivými pobyty hostů. Pravidelný svoz přizpůsobíme obsazenosti i rytmu vašeho ubytování.',
+    image: '/images/client-pension.webp',
+    imageAlt: 'Penzion v Krkonoších',
+  },
+  services: {
+    title: 'Kompletní péče o prádlo pro hosty',
+    copy: 'Povlečení, ručníky i provozní textil připravíme včas pro další hosty.',
+    image: '/images/services/hotels/service.webp',
+    imageAlt: 'Čisté prádlo připravené v prádelně',
+    items: [
+      { number: '01', title: 'Ložní prádlo', copy: 'Povlečení a prostěradla připravená pro další hosty.' },
+      { number: '02', title: 'Ručníky', copy: 'Pravidelné praní ručníků a koupelnového textilu.' },
+      { number: '03', title: 'Provozní textil', copy: 'Textil používaný při úklidu a každodenním chodu ubytování.' },
+      { number: '04', title: 'Svoz podle obsazenosti', copy: 'Četnost svozu přizpůsobíme rezervacím, turnusům a sezóně.' },
+    ],
+  },
+  needs: {
+    eyebrow: 'PRO UBYTOVACÍ PROVOZ',
+    title: 'Hosté se střídají. Čisté prádlo musí být připravené.',
+    items: [
+      { number: '01', title: 'Svoz podle obsazenosti', copy: 'Nemusíte držet stejný režim během klidného týdne a plné sezóny.' },
+      { number: '02', title: 'Připravené pro další hosty', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.' },
+      { number: '03', title: 'Méně starostí mezi turnusy', copy: 'Praní a svoz řešíme my, vy se můžete věnovat hostům.' },
+    ],
+  },
+  season: {
+    eyebrow: 'RYTMUS UBYTOVÁNÍ',
+    title: 'Přizpůsobíme se rytmu vašich hostů',
+    copy: [
+      'Obsazenost penzionů a apartmánů se během roku mění.',
+      'Svoz proto nastavíme tak, aby odpovídal vašim rezervacím, turnusům i hlavní sezóně.',
+    ],
+    image: '/images/client-pension.webp',
+    imageAlt: 'Penzion v horské krajině',
+  },
+  process: {
+    title: 'Jak probíhá spolupráce krok za krokem?',
+    copy: 'Vše nastavíme podle rytmu vašeho ubytování a požadované četnosti svozu.',
+    steps: [
+      { number: '01', title: 'Nezávazná poptávka', copy: 'Řeknete nám, co váš provoz potřebuje.', image: '/images/step-1.webp' },
+      { number: '02', title: 'Nastavení spolupráce', copy: 'Domluvíme četnost svozu, množství a způsob předání.', image: '/images/step-2.webp' },
+      { number: '03', title: 'Pravidelný svoz a praní', copy: 'Prádlo vyzvedneme a postaráme se o jeho vyprání a přípravu.', image: '/images/step-3.webp' },
+      { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/step-4.webp' },
+    ],
+  },
+  faqs: [
+    ['Jak často prádlo svážíte?', 'Četnost svozu nastavíme podle obsazenosti, objemu prádla a provozního režimu vašeho ubytování.'],
+    ['Lze svoz přizpůsobit obsazenosti?', 'Ano. Režim svozu můžeme upravit podle rezervací, turnusů a sezónních změn.'],
+    ['Perete ložní prádlo i ručníky?', 'Ano. Zpracováváme povlečení, prostěradla, ručníky, osušky a další koupelnový textil.'],
+    ['Zvládnete větší objem během hlavní sezóny?', 'Kapacitu plánujeme s ohledem na sezónní špičky a předem domluvený harmonogram.'],
+    ['Je stanovené minimální množství prádla?', 'Minimum řešíme individuálně podle četnosti svozu, typu textilu a trasy rozvozu.'],
+    ['Kam v Krkonoších prádlo svážíte?', 'Sídlíme ve Vrchlabí a obsluhujeme B2B provozy po Krkonoších a v blízkém okolí.'],
+  ] as Array<[string, string]>,
+  faqIntro: 'Praktické informace o praní a svozu pro penziony a apartmány.',
+  formType: 'Penzion / apartmány',
+  formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
+};
+---
+
+<SegmentLandingPage config={pensiony} />

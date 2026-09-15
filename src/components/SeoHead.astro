@@ -1,0 +1,99 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  ogDescription?: string;
+  path?: string;
+  type?: 'website' | 'article';
+  serviceName?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  ogDescription = description,
+  path = Astro.url.pathname,
+  type = 'website',
+  serviceName,
+} = Astro.props;
+
+const siteUrl = (Astro.site ?? new URL('https://www.pradelnakrkonose.cz')).toString().replace(/\/$/, '');
+const normalizedPath = path && path !== '/' ? `${path.replace(/\/$/, '')}/` : '/';
+const canonicalUrl = new URL(normalizedPath, `${siteUrl}/`).toString();
+const imageUrl = new URL(image, `${siteUrl}/`).toString();
+const businessId = `${siteUrl}/#business`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      '@id': businessId,
+      name: 'Prádelna Krkonoše',
+      url: siteUrl,
+      description,
+      logo: new URL('/logo.svg', `${siteUrl}/`).toString(),
+      image: imageUrl,
+      telephone: '+420773798008',
+      email: 'info@pradelnakrkonose.cz',
+      hasMap: 'https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1',
+      contactPoint: [{
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        telephone: '+420773798008',
+        email: 'info@pradelnakrkonose.cz',
+        areaServed: 'CZ',
+        availableLanguage: 'cs',
+      }],
+      sameAs: ['https://www.facebook.com/profile.php?id=61590110367033'],
+      areaServed: [
+        { '@type': 'City', name: 'Vrchlabí' },
+        { '@type': 'Place', name: 'Krkonoše' },
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Kpt. Jaroše 496',
+        addressLocality: 'Vrchlabí',
+        postalCode: '543 01',
+        addressCountry: 'CZ',
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '07:30',
+          closes: '14:00',
+        },
+      ],
+    },
+    ...(serviceName
+      ? [{
+          '@type': 'Service',
+          name: serviceName,
+          provider: { '@id': businessId },
+          areaServed: ['Vrchlabí', 'Krkonoše'],
+        }]
+      : []),
+  ],
+};
+---
+
+<meta name="description" content={description} />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#079AAE" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="canonical" href={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:type" content={type} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content="Prádelna Krkonoše – profesionální praní a svoz prádla" />
+<meta property="og:locale" content="cs_CZ" />
+<meta property="og:site_name" content="Prádelna Krkonoše" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={ogDescription} />
+<meta name="twitter:image" content={imageUrl} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />

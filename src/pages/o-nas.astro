@@ -1,0 +1,186 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import locationIcon from 'lucide-static/icons/map-pinned.svg?raw';
+import mountainsIcon from 'lucide-static/icons/mountain.svg?raw';
+import directContactIcon from 'lucide-static/icons/messages-square.svg?raw';
+import adaptableIcon from 'lucide-static/icons/sliders-horizontal.svg?raw';
+
+const localReasons = [
+  {
+    icon: locationIcon,
+    title: 'Jsme blízko',
+            copy: 'Sídlíme ve Vrchlabí a obsluhujeme provozy v Krkonoších a okolí.',
+  },
+  {
+    icon: mountainsIcon,
+    title: 'Známe místní sezónu',
+    copy: 'Víme, jak se objem prádla mění mezi klidným týdnem a plně obsazeným víkendem.',
+  },
+  {
+    icon: directContactIcon,
+    title: 'Domluvíte se přímo s námi',
+            copy: 'Když potřebujete něco změnit, řešíte to přímo s námi.',
+  },
+  {
+    icon: adaptableIcon,
+    title: 'Přizpůsobíme se provozu',
+            copy: 'Četnost svozu i objem nastavíme podle toho, jak váš provoz funguje.',
+  },
+];
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SeoHead
+      title="O nás | Prádelna Krkonoše, Vrchlabí"
+      description="Poznejte Prádelnu Krkonoše ve Vrchlabí. Zajišťujeme praní a svoz provozního prádla pro ubytovací a gastro provozy v Krkonoších."
+      image="/images/about-2.webp"
+      path="/o-nas"
+    />
+    <title>O nás | Prádelna Krkonoše</title>
+    <link rel="icon" href="/logo.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Přejít na obsah</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/#top" aria-label="Prádelna Krkonoše, domů">
+        <img src="/logo-white.svg" alt="Prádelna Krkonoše" width="129" height="66" />
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Hlavní navigace">
+        <a href="/#pro-koho">Provozy</a>
+        <a href="/#sluzby">Služby</a>
+        <a href="/#jak-to-funguje">Jak to funguje</a>
+        <a href="/o-nas" aria-current="page">O nás</a>
+        <a href="/kontakt">Kontakt</a>
+        <a class="button button--small" href="/kontakt#poptavka">Nezávazná poptávka</a>
+        <div class="site-nav__contact">
+          <span>Rychlý kontakt</span>
+          <a href="tel:+420773798008">+420 773 798 008</a>
+          <a href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a>
+          <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer">Kpt. Jaroše 496, 543 01 Vrchlabí 1</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero about-hero" aria-labelledby="hero-title">
+        <div class="wrap about-hero__layout">
+          <div class="hero__content about-hero__content">
+            <p class="eyebrow eyebrow--light">O NÁS</p>
+            <h1 id="hero-title">Prádelna z Krkonoš.<br />Pro provozy z Krkonoš.</h1>
+            <div class="about-hero__copy">
+              <p>Jsme lokální prádelna z Vrchlabí. Staráme se o prádlo hotelů, penzionů, apartmánů a gastro provozů v Krkonoších a okolí.</p>
+            </div>
+            <div class="hero__actions">
+              <a class="button" href="/#poptavka">Nezávazná poptávka</a>
+            </div>
+          </div>
+          <figure class="about-hero__image">
+            <img src="/images/about-1.webp" alt="Vozíky s prádlem v provozu Prádelny Krkonoše" fetchpriority="high" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section about-statement">
+        <div class="wrap about-statement__inner reveal">
+          <p class="eyebrow">JAK PRACUJEME</p>
+          <h2>Prádlo je naše práce.<br />Vy ho díky tomu řešit nemusíte.</h2>
+          <p class="lead">Jsme přímo ve Vrchlabí a pracujeme s provozy, které máme kolem sebe. Díky tomu se dokážeme rychle domluvit a nastavit svoz podle toho, jak váš provoz skutečně funguje.</p>
+        </div>
+      </section>
+
+      <section class="section section--tint about-local">
+        <div class="wrap about-local__layout">
+          <div class="about-local__content">
+            <h2 class="reveal">Lokální servis, který zná rytmus hor.</h2>
+            <div class="about-local__rows">
+              {localReasons.map((item, index) => (
+                <article class="about-local__row reveal" style={`--delay:${index * 90}ms`}>
+                  <span class="about-local__icon" aria-hidden="true" set:html={item.icon}></span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+          <figure class="about-local__image reveal reveal--media" style="--delay:80ms">
+            <img src="/images/service.webp" alt="Provoz Prádelny Krkonoše ve Vrchlabí" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section about-people">
+        <div class="wrap">
+          <div class="about-people__heading reveal">
+            <div class="about-people__title">
+              <p class="eyebrow">LIDÉ ZA PRÁDELNOU</p>
+              <h2>Jsme tým, který znáte<br />nejen po telefonu.</h2>
+            </div>
+            <p class="lead">Za každým svozem, praním i přípravou prádla jsou lidé z našeho provozu ve Vrchlabí. Když potřebujete něco vyřešit, víte, s kým mluvíte.</p>
+          </div>
+          <figure class="about-people__image reveal reveal--media" style="--delay:80ms">
+            <img src="/images/about-2.webp" alt="Tým Prádelny Krkonoše při práci" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--tint about-gallery">
+        <div class="wrap">
+          <div class="about-gallery__heading reveal">
+            <p class="eyebrow">NÁŠ PROVOZ</p>
+            <h2>Tady se o vaše<br />prádlo staráme.</h2>
+            <p class="lead">V našem provozu ve Vrchlabí prádlo třídíme, pereme, mandlujeme a připravujeme na cestu zpět k zákazníkům.</p>
+          </div>
+          <div class="about-gallery__grid">
+            <figure class="about-gallery__main reveal reveal--media">
+              <img src="/images/services/hotels/about.webp" alt="Průmyslové pračky v provozu Prádelny Krkonoše" loading="lazy" />
+            </figure>
+            <figure class="about-gallery__detail reveal reveal--media" style="--delay:80ms">
+              <img src="/images/step-4.webp" alt="Připravené čisté prádlo před rozvozem" loading="lazy" />
+            </figure>
+            <figure class="about-gallery__support reveal reveal--media" style="--delay:160ms">
+              <img src="/images/about-1.webp" alt="Prádlo připravené ve vozících v provozu" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-region">
+        <div class="wrap">
+          <div class="about-region__copy reveal">
+            <p class="eyebrow">DOMA V KRKONOŠÍCH</p>
+            <h2>Vrchlabí je náš domov<br />i centrum našeho svozu.</h2>
+            <p class="lead">Odtud vyrážíme za hotely, penziony, apartmány, chatami a gastro provozy v Krkonoších a okolí.</p>
+          </div>
+          <figure class="about-region__image reveal reveal--media" style="--delay:80ms">
+            <img src="/images/hero.webp" alt="Dodávka Prádelny Krkonoše na cestě horskou krajinou" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--tint about-final">
+        <div class="wrap about-final__inner reveal">
+          <h2>Hledáte prádelnu<br />pro svůj provoz?</h2>
+          <p class="lead">Řekněte nám, co potřebujete. Ozveme se a domluvíme další postup.</p>
+          <div class="about-final__actions">
+            <a class="button" href="/#poptavka">Nezávazná poptávka <span aria-hidden="true">→</span></a>
+            <a class="text-link hero__phone" href="tel:+420773798008">+420 773 798 008</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

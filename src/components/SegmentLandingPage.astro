@@ -1,0 +1,262 @@
+---
+import SiteFooter from './SiteFooter.astro';
+interface SegmentItem {
+  number: string;
+  title: string;
+  copy: string;
+}
+
+interface ProcessStep extends SegmentItem {
+  image: string;
+}
+
+interface SegmentPageConfig {
+  meta: {
+    title: string;
+    description: string;
+    ogDescription: string;
+    ogImage: string;
+  };
+  hero: {
+    eyebrow: string;
+    title: string;
+    copy: string;
+    image: string;
+    imageAlt: string;
+  };
+  services: {
+    title: string;
+    copy: string;
+    image: string;
+    imageAlt: string;
+    items: SegmentItem[];
+  };
+  needs: {
+    eyebrow: string;
+    title: string;
+    items: SegmentItem[];
+  };
+  season: {
+    eyebrow: string;
+    title: string;
+    copy: string[];
+    image: string;
+    imageAlt: string;
+  };
+  process: {
+    title: string;
+    copy: string;
+    steps: ProcessStep[];
+  };
+  faqs: Array<[string, string]>;
+  faqIntro: string;
+  formType: string;
+  formNotePlaceholder: string;
+}
+
+interface Props {
+  config: SegmentPageConfig;
+}
+
+import SeoHead from './SeoHead.astro';
+const { config } = Astro.props;
+---
+
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SeoHead title={config.meta.title} description={config.meta.description} ogDescription={config.meta.ogDescription} image={config.meta.ogImage} serviceName={config.hero.title} />
+    <title>{config.meta.title}</title>
+    <link rel="icon" href="/logo.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Přejít na obsah</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/#top" aria-label="Prádelna Krkonoše, domů">
+        <img src="/logo-white.svg" alt="Prádelna Krkonoše" width="129" height="66" />
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Hlavní navigace">
+        <a href="/#pro-koho">Provozy</a>
+        <a href="#sluzby">Služby</a>
+        <a href="#jak-to-funguje">Jak to funguje</a>
+        <a href="/o-nas">O nás</a>
+        <a href="/kontakt">Kontakt</a>
+        <a class="button button--small" href="/kontakt#poptavka">Nezávazná poptávka</a>
+        <div class="site-nav__contact">
+          <span>Rychlý kontakt</span>
+          <a href="tel:+420773798008">+420 773 798 008</a>
+          <a href="mailto:info@pradelnakrkonose.cz">info@pradelnakrkonose.cz</a>
+          <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer">Kpt. Jaroše 496, 543 01 Vrchlabí 1</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero service-detail-hero" aria-labelledby="hero-title">
+        <img class="hero__media" src={config.hero.image} alt={config.hero.imageAlt} fetchpriority="high" />
+        <div class="hero__veil"></div>
+        <div class="hero__content wrap">
+          <p class="eyebrow eyebrow--light">{config.hero.eyebrow}</p>
+          <h1 id="hero-title">{config.hero.title}</h1>
+          <p class="hero__lead">{config.hero.copy}</p>
+          <div class="hero__actions">
+            <a class="button" href="/kontakt#poptavka">Nezávazná poptávka</a>
+            <a class="text-link text-link--light hero__phone" href="tel:+420773798008">Zavolejte nám</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="partner-strip" aria-label="Spolupracujeme s podniky v regionu">
+        <div class="wrap partner-strip__inner">
+          <p>Spolupracujeme s podniky v regionu</p>
+          <div class="partner-strip__window" aria-hidden="true">
+            <div class="partner-strip__track">
+              {[1, 2, 3, 4, 1, 2, 3, 4].map((logo) => <img src={`/icons/client-${logo}.svg`} alt="" loading="lazy" />)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sluzby" class="section service segment-services">
+        <div class="wrap service__layout">
+          <div class="service__intro reveal">
+            <h2>{config.services.title}</h2>
+            <p class="lead">{config.services.copy}</p>
+          </div>
+          <figure class="service__image reveal reveal--media" style="--delay:80ms">
+            <img src={config.services.image} alt={config.services.imageAlt} loading="lazy" />
+          </figure>
+          <div class="service__content">
+            <div class="benefit-list">
+              {config.services.items.map((item, index) => (
+                <article class="benefit reveal" style={`--delay:${index * 100}ms`}>
+                  <span class="benefit__number">{item.number}</span>
+                  <span class="benefit__copy">
+                    <h3>{item.title}</h3>
+                    <p>{item.copy}</p>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tint segment-needs">
+        <div class="wrap segment-needs__layout">
+          <div class="segment-needs__heading reveal">
+            <p class="eyebrow">{config.needs.eyebrow}</p>
+            <h2>{config.needs.title}</h2>
+          </div>
+          <div class="segment-needs__list">
+            {config.needs.items.map((item, index) => (
+              <article class="segment-need reveal" style={`--delay:${index * 100}ms`}>
+                <span>{item.number}</span>
+                <div><h3>{item.title}</h3><p>{item.copy}</p></div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section hotel-about segment-season">
+        <div class="wrap hotel-about__layout">
+          <figure class="hotel-about__image reveal reveal--media">
+            <img src={config.season.image} alt={config.season.imageAlt} loading="lazy" />
+          </figure>
+          <div class="hotel-about__content reveal" style="--delay:80ms">
+            <p class="eyebrow">{config.season.eyebrow}</p>
+            <h2>{config.season.title}</h2>
+            <div class="hotel-about__copy">
+              {config.season.copy.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="jak-to-funguje" class="section process hotel-process section--tint">
+        <div class="wrap">
+          <div class="section-heading reveal">
+            <h2>{config.process.title}</h2>
+            <p class="lead">{config.process.copy}</p>
+          </div>
+          <ol class="steps hotel-steps">
+            {config.process.steps.map((step, index) => (
+              <li class="step reveal" style={`--delay:${index * 80}ms`}>
+                <img class="reveal--media" src={step.image} alt="" loading="lazy" />
+                <span class="step__number">{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq">
+        <div class="wrap faq__layout">
+          <div class="reveal"><h2>Často kladené otázky</h2><p class="lead">{config.faqIntro}</p></div>
+          <div class="accordion reveal">
+            {config.faqs.map(([question, answer], index) => (
+              <details open={index === 0}>
+                <summary>{question}<span aria-hidden="true">+</span></summary>
+                <p>{answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="section contact section--tint">
+        <div class="wrap contact__layout">
+          <div class="contact__info reveal">
+            <h2>Máte zájem o spolupráci?</h2>
+            <p class="lead">Napište nám pár základních informací. Ozveme se zpravidla do 24 hodin a navrhneme další postup.</p>
+            <address>
+              <a href="tel:+420773798008"><span>Telefon</span><strong>+420 773 798 008</strong></a>
+              <a href="mailto:info@pradelnakrkonose.cz"><span>E-mail</span><strong>info@pradelnakrkonose.cz</strong></a>
+              <a href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer"><span>Adresa</span><strong>Kpt. Jaroše 496, 543 01 Vrchlabí 1</strong></a>
+            </address>
+            <a class="contact__map reveal--media" href="https://maps.google.com/?q=Kpt.+Jaroše+496,+543+01+Vrchlabí+1" target="_blank" rel="noreferrer" aria-label="Otevřít adresu v mapách">
+              <img src="/images/map.webp" alt="Mapa s polohou Prádelny Krkonoše ve Vrchlabí" loading="lazy" />
+              <span class="contact__pin" aria-hidden="true"></span>
+              <span class="contact__map-label">Otevřít v mapách ↗</span>
+            </a>
+          </div>
+
+          <form id="poptavka" class="inquiry-form reveal" novalidate>
+            <div class="form-heading"><h3>Řekněte nám o svém provozu</h3></div>
+            <label>Typ provozu
+              <select name="provoz" required>
+                <option value={config.formType} selected>{config.formType}</option>
+                <option>Penzion / apartmány</option><option>Horská chata / chalupa</option><option>Restaurace / gastro</option><option>Jiný provoz</option>
+              </select>
+            </label>
+            <label>Jméno / firma
+              <input name="jmeno" autocomplete="name" placeholder="Jan Novák / Hotel Krkonoše" required />
+            </label>
+            <div class="form-row">
+              <label>Telefon<input type="tel" name="telefon" autocomplete="tel" placeholder="+420 777 000 000" required /></label>
+              <label>E-mail<input type="email" name="email" autocomplete="email" placeholder="novak@email.cz" required /></label>
+            </div>
+            <label>Co potřebujete?
+              <textarea name="poznamka" rows="5" placeholder={config.formNotePlaceholder}></textarea>
+            </label>
+            <p class="consent-note">Odesláním formuláře souhlasíte se zpracováním osobních údajů za účelem vyřízení poptávky. <a href="/ochrana-osobnich-udaju">Více o ochraně osobních údajů</a>.</p>
+            <div class="form-actions"><button class="button" type="submit">Odeslat poptávku</button><a class="button button--outline" href="tel:+420773798008">Raději zavolám</a></div>
+            <p class="form-note">Ozveme se zpravidla do 24 hodin. Nezávazně.</p>
+            <p class="form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+
+    <script src="../scripts/site.ts"></script>
+  </body>
+</html>

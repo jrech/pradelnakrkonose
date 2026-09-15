@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import SegmentLandingPage from '../components/SegmentLandingPage.astro';
+
+const gastro = {
+  meta: {
+    title: 'Praní prádla pro restaurace a gastro | Prádelna Krkonoše',
+    description: 'Pravidelný prádelenský servis pro restaurace a gastro provozy v Krkonoších. Ubrusy, pracovní oděvy a kuchyňský textil včetně svozu.',
+    ogDescription: 'Čistý textil pro každý den provozu. Pravidelný svoz nastavíme podle vytížení a potřeb vašeho provozu.',
+    ogImage: '/images/client-gastro.webp',
+  },
+  hero: {
+    eyebrow: 'PRO RESTAURACE A GASTRO',
+    title: 'Prádelenský servis pro restaurace a gastro',
+    copy: 'Od ubrusů po pracovní oděvy. Postaráme se o pravidelné praní a svoz textilu pro váš provoz.',
+    image: '/images/client-gastro.webp',
+    imageAlt: 'Restaurace v horské krajině',
+  },
+  services: {
+    title: 'Čistý textil pro každý den provozu',
+    copy: 'Ubrusy, pracovní oděvy i kuchyňský textil vrátíme připravené na další směnu.',
+    image: '/images/services/hotels/about.webp',
+    imageAlt: 'Prádlo a provozní textil v prádelně',
+    items: [
+      { number: '01', title: 'Ubrusy a prostírání', copy: 'Ubrusy a prostírání připravené pro každodenní provoz.' },
+      { number: '02', title: 'Pracovní oděvy', copy: 'Prádlo pro kuchyň, obsluhu a další personál.' },
+      { number: '03', title: 'Kuchyňský textil', copy: 'Textil používaný při každodenním provozu kuchyně.' },
+      { number: '04', title: 'Pravidelný svoz', copy: 'Režim svozu nastavíme podle vytížení a potřeb vašeho provozu.' },
+    ],
+  },
+  needs: {
+    eyebrow: 'PRO GASTRO PROVOZ',
+    title: 'Čistý textil musí být připravený, když ho potřebujete.',
+    items: [
+      { number: '01', title: 'Pravidelný svoz bez hromadění prádla', copy: 'Četnost nastavíme podle toho, kolik textilu váš provoz skutečně spotřebuje.' },
+      { number: '02', title: 'Vytížené období znamená vyšší objem', copy: 'Kapacitu přizpůsobíme sezóně a provozu.' },
+      { number: '03', title: 'Režim, který nemusíte stále řešit', copy: 'Domluvíme pravidelný svoz a vy se můžete soustředit na provoz.' },
+    ],
+  },
+  season: {
+    eyebrow: 'RYTMUS PROVOZU',
+    title: 'Pravidelný režim pro váš provoz',
+    copy: [
+      'Restaurace potřebuje čistý textil každý den, ne až ve chvíli, kdy se to hodí.',
+      'Nastavíme pravidelný režim svozu podle potřeb vašeho provozu.',
+    ],
+    image: '/images/about-2.webp',
+    imageAlt: 'Tým při práci v provozu prádelny',
+  },
+  process: {
+    title: 'Jak probíhá spolupráce krok za krokem?',
+    copy: 'Vše nastavíme podle rytmu vaší kuchyně, provozu a požadované četnosti svozu.',
+    steps: [
+      { number: '01', title: 'Nezávazná poptávka', copy: 'Řeknete nám, co váš provoz potřebuje.', image: '/images/step-1.webp' },
+      { number: '02', title: 'Nastavení spolupráce', copy: 'Domluvíme četnost svozu, množství a způsob předání.', image: '/images/step-2.webp' },
+      { number: '03', title: 'Pravidelný svoz a praní', copy: 'Prádlo vyzvedneme a postaráme se o jeho vyprání a přípravu.', image: '/images/step-3.webp' },
+      { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/step-4.webp' },
+    ],
+  },
+  faqs: [
+    ['Jaký gastro textil perete?', 'Pereme ubrusy, prostírání, utěrky, kuchyňský textil a vybrané pracovní oděvy.'],
+    ['Perete pracovní oděvy?', 'Ano. Zpracováváme pracovní oděvy kuchyně, obsluhy a dalšího provozního personálu.'],
+    ['Jak často probíhá svoz?', 'Četnost nastavíme podle objemu prádla, vytížení a režimu vašeho provozu.'],
+    ['Lze svoz přizpůsobit vytíženosti provozu?', 'Ano. Režim můžeme upravit podle sezóny, směn a aktuálního provozu.'],
+    ['Je stanovené minimální množství?', 'Minimum řešíme individuálně podle typu textilu, četnosti svozu a trasy.'],
+    ['Kam v regionu svážíte?', 'Sídlíme ve Vrchlabí a obsluhujeme restaurace a gastro provozy po Krkonoších a v blízkém okolí.'],
+  ] as Array<[string, string]>,
+  faqIntro: 'Praktické informace o praní a svozu pro restaurace a gastro provozy.',
+  formType: 'Restaurace / gastro',
+  formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
+};
+---
+
+<SegmentLandingPage config={gastro} />
