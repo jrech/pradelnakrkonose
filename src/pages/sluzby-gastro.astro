@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import type { SegmentPageConfig } from '../types/industry';
 import SegmentLandingPage from '../components/SegmentLandingPage.astro';
 
 const gastro = {
@@ -57,6 +57,10 @@ const gastro = {
       { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/step-4.webp' },
     ],
   },
+  cta: {
+    title: 'Domluvme praní pro váš gastro provoz',
+    copy: 'Napište nám, jaký textil a v jakém množství používáte. Praní a svoz přizpůsobíme rytmu vaší restaurace.',
+  },
   faqs: [
     ['Jaký gastro textil perete?', 'Pereme ubrusy, prostírání, utěrky, kuchyňský textil a vybrané pracovní oděvy.'],
     ['Perete pracovní oděvy?', 'Ano. Zpracováváme pracovní oděvy kuchyně, obsluhy a dalšího provozního personálu.'],
@@ -68,7 +72,7 @@ const gastro = {
   faqIntro: 'Praktické informace o praní a svozu pro restaurace a gastro provozy.',
   formType: 'Restaurace / gastro',
   formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
-};
+} satisfies SegmentPageConfig;
 ---
 
 <SegmentLandingPage config={gastro} />

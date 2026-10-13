@@ -50,7 +50,7 @@ const placeholderStats = [
   .social-proof { position: relative; isolation: isolate; overflow: hidden; min-height: 92svh; display: flex; align-items: center; color: white; background: var(--ink); --reveal-distance: 12px; }
   .social-proof__background { position: absolute; z-index: -2; left: 0; top: -36px; width: 100%; max-width: none; height: calc(100% + 72px); object-fit: cover; object-position: center; }
   .social-proof__veil { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.14) 57%, rgba(0,0,0,.5)), linear-gradient(180deg, rgba(0,0,0,.34), rgba(0,0,0,.3) 55%, rgba(0,0,0,.7)); }
-  .social-proof__inner { padding-block: var(--space-section); }
+  .social-proof__inner { padding-block: var(--space-major) var(--space-section); }
   .social-proof__main { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(240px, .65fr); gap: clamp(64px, 8vw, 128px); align-items: center; }
   .social-proof__intro h2 { max-width: 760px; margin-bottom: 28px; font-size: clamp(2.5rem, 3.6vw, 3.75rem); line-height: 1.1; text-wrap: initial; }
   .social-proof__copy { max-width: 440px; margin: 0; font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,.9); }

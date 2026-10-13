@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import type { SegmentPageConfig } from '../types/industry';
 import SegmentLandingPage from '../components/SegmentLandingPage.astro';
 
 const pensiony = {
@@ -57,6 +57,10 @@ const pensiony = {
       { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/step-4.webp' },
     ],
   },
+  cta: {
+    title: 'Domluvme praní pro vaše ubytování',
+    copy: 'Napište nám o svém penzionu nebo apartmánech. Svoz nastavíme podle obsazenosti a střídání hostů.',
+  },
   faqs: [
     ['Jak často prádlo svážíte?', 'Četnost svozu nastavíme podle obsazenosti, objemu prádla a provozního režimu vašeho ubytování.'],
     ['Lze svoz přizpůsobit obsazenosti?', 'Ano. Režim svozu můžeme upravit podle rezervací, turnusů a sezónních změn.'],
@@ -68,7 +72,7 @@ const pensiony = {
   faqIntro: 'Praktické informace o praní a svozu pro penziony a apartmány.',
   formType: 'Penzion / apartmány',
   formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
-};
+} satisfies SegmentPageConfig;
 ---
 
 <SegmentLandingPage config={pensiony} />

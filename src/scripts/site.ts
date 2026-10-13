@@ -96,7 +96,6 @@ if (!prefersReducedMotion) {
     const heroLines = heroTitle.querySelectorAll<HTMLElement>('.hero__line');
     const heroLead = heroSection.querySelector<HTMLElement>('.hero__lead');
     const heroActions = heroSection.querySelector<HTMLElement>('.hero__actions');
-    const mobileHero = window.matchMedia('(max-width: 560px)').matches;
     let entranceStarted = false;
 
     const showHeroImmediately = () => {
@@ -120,7 +119,10 @@ if (!prefersReducedMotion) {
         return;
       }
 
-      const imageDuration = mobileHero ? 1.1 : 1.3;
+      // Let the photograph establish the scene before the copy and navigation enter.
+      const imageDuration = 1.05;
+      const contentStart = imageDuration;
+      const headerStart = contentStart + 0.82;
       if (mediaReveal) {
         animate(mediaReveal, {
           clipPath: ['inset(100% 0 0 0)', 'inset(0% 0 0 0)'],
@@ -131,33 +133,33 @@ if (!prefersReducedMotion) {
           transform: ['scale(1.04)', 'scale(1)'],
         }, { duration: imageDuration, ease: easeOut });
       }
-      if (header) {
-        animate(header, {
-          opacity: [0, 1],
-          transform: ['translateY(8px)', 'translateY(0px)'],
-        }, { delay: imageDuration, duration: 0.5, ease: easeOut });
-      }
       if (heroEyebrow) {
         animate(heroEyebrow, {
           opacity: [0, 1],
-          transform: ['translateY(14px)', 'translateY(0px)'],
-        }, { delay: 0.35, duration: 0.46, ease: easeOut });
+          transform: ['translateY(12px)', 'translateY(0px)'],
+        }, { delay: contentStart, duration: 0.42, ease: easeOut });
       }
-      animate(heroTitle, { opacity: [0, 1] }, { delay: 0.45, duration: 0.18, ease: easeOut });
+      animate(heroTitle, { opacity: [0, 1] }, { delay: contentStart + 0.08, duration: 0.18, ease: easeOut });
       animate(heroLines, {
         transform: ['translateY(105%)', 'translateY(0%)'],
-      }, { delay: stagger(0.07, { startDelay: 0.45 }), duration: 0.68, ease: easeOut });
+      }, { delay: stagger(0.07, { startDelay: contentStart + 0.08 }), duration: 0.62, ease: easeOut });
       if (heroLead) {
         animate(heroLead, {
           opacity: [0, 1],
-          transform: ['translateY(16px)', 'translateY(0px)'],
-        }, { delay: 0.68, duration: 0.52, ease: easeOut });
+          transform: ['translateY(12px)', 'translateY(0px)'],
+        }, { delay: contentStart + 0.24, duration: 0.48, ease: easeOut });
       }
       if (heroActions) {
         animate(heroActions, {
           opacity: [0, 1],
-          transform: ['translateY(14px)', 'translateY(0px)'],
-        }, { delay: 0.86, duration: 0.5, ease: easeOut });
+          transform: ['translateY(12px)', 'translateY(0px)'],
+        }, { delay: contentStart + 0.38, duration: 0.48, ease: easeOut });
+      }
+      if (header) {
+        animate(header, {
+          opacity: [0, 1],
+          transform: ['translateY(8px)', 'translateY(0px)'],
+        }, { delay: headerStart, duration: 0.48, ease: easeOut });
       }
 
       window.setTimeout(() => {
@@ -165,7 +167,7 @@ if (!prefersReducedMotion) {
         mediaReveal?.style.removeProperty('will-change');
         mediaScale?.style.removeProperty('will-change');
         heroLines.forEach((line) => line.style.removeProperty('will-change'));
-      }, imageDuration * 1000 + 100);
+      }, (headerStart + 0.5) * 1000);
     };
 
     const startAfterDecode = () => {

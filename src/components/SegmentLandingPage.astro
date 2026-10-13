@@ -1,58 +1,10 @@
 ---
 import SiteFooter from './SiteFooter.astro';
-interface SegmentItem {
-  number: string;
-  title: string;
-  copy: string;
-}
-
-interface ProcessStep extends SegmentItem {
-  image: string;
-}
-
-interface SegmentPageConfig {
-  meta: {
-    title: string;
-    description: string;
-    ogDescription: string;
-    ogImage: string;
-  };
-  hero: {
-    eyebrow: string;
-    title: string;
-    copy: string;
-    image: string;
-    imageAlt: string;
-  };
-  services: {
-    title: string;
-    copy: string;
-    image: string;
-    imageAlt: string;
-    items: SegmentItem[];
-  };
-  needs: {
-    eyebrow: string;
-    title: string;
-    items: SegmentItem[];
-  };
-  season: {
-    eyebrow: string;
-    title: string;
-    copy: string[];
-    image: string;
-    imageAlt: string;
-  };
-  process: {
-    title: string;
-    copy: string;
-    steps: ProcessStep[];
-  };
-  faqs: Array<[string, string]>;
-  faqIntro: string;
-  formType: string;
-  formNotePlaceholder: string;
-}
+import '../styles/global.css';
+import '../styles/industry.css';
+import type { SegmentPageConfig } from '../types/industry';
+import { industryTypes, industryRevealStagger } from '../types/industry';
+import IndustryCta from './IndustryCta.astro';
 
 interface Props {
   config: SegmentPageConfig;
@@ -71,7 +23,7 @@ const { config } = Astro.props;
     <title>{config.meta.title}</title>
     <link rel="icon" href="/logo.svg" />
   </head>
-  <body>
+  <body class="industry-page">
     <a class="skip-link" href="#main">Přejít na obsah</a>
 
     <header class="site-header" data-header>
@@ -85,7 +37,7 @@ const { config } = Astro.props;
         <a href="#jak-to-funguje">Jak to funguje</a>
         <a href="/o-nas">O nás</a>
         <a href="/kontakt">Kontakt</a>
-        <a class="button button--small" href="/kontakt#poptavka">Nezávazná poptávka</a>
+        <a class="button button--small" href="#poptavka">Nezávazná poptávka</a>
         <div class="site-nav__contact">
           <span>Rychlý kontakt</span>
           <a href="tel:+420773798008">+420 773 798 008</a>
@@ -104,13 +56,13 @@ const { config } = Astro.props;
           <h1 id="hero-title">{config.hero.title}</h1>
           <p class="hero__lead">{config.hero.copy}</p>
           <div class="hero__actions">
-            <a class="button" href="/kontakt#poptavka">Nezávazná poptávka</a>
+            <a class="button" href="#poptavka">Nezávazná poptávka</a>
             <a class="text-link text-link--light hero__phone" href="tel:+420773798008">Zavolejte nám</a>
           </div>
         </div>
       </section>
 
-      <section class="partner-strip" aria-label="Spolupracujeme s podniky v regionu">
+      <section id="partneri" class="partner-strip" aria-label="Spolupracujeme s podniky v regionu">
         <div class="wrap partner-strip__inner">
           <p>Spolupracujeme s podniky v regionu</p>
           <div class="partner-strip__window" aria-hidden="true">
@@ -133,7 +85,7 @@ const { config } = Astro.props;
           <div class="service__content">
             <div class="benefit-list">
               {config.services.items.map((item, index) => (
-                <article class="benefit reveal" style={`--delay:${index * 100}ms`}>
+                <article class="benefit reveal" style={`--delay:${index * industryRevealStagger}ms`}>
                   <span class="benefit__number">{item.number}</span>
                   <span class="benefit__copy">
                     <h3>{item.title}</h3>
@@ -146,7 +98,7 @@ const { config } = Astro.props;
         </div>
       </section>
 
-      <section class="section section--tint segment-needs">
+      <section id="vyhody" class="section section--tint segment-needs">
         <div class="wrap segment-needs__layout">
           <div class="segment-needs__heading reveal">
             <p class="eyebrow">{config.needs.eyebrow}</p>
@@ -154,7 +106,7 @@ const { config } = Astro.props;
           </div>
           <div class="segment-needs__list">
             {config.needs.items.map((item, index) => (
-              <article class="segment-need reveal" style={`--delay:${index * 100}ms`}>
+              <article class="segment-need reveal" style={`--delay:${index * industryRevealStagger}ms`}>
                 <span>{item.number}</span>
                 <div><h3>{item.title}</h3><p>{item.copy}</p></div>
               </article>
@@ -163,30 +115,30 @@ const { config } = Astro.props;
         </div>
       </section>
 
-      <section class="section hotel-about segment-season">
-        <div class="wrap hotel-about__layout">
-          <figure class="hotel-about__image reveal reveal--media">
+      <section id="pribeh" class="section segment-story segment-season">
+        <div class="wrap segment-story__layout">
+          <figure class="segment-story__image reveal reveal--media">
             <img src={config.season.image} alt={config.season.imageAlt} loading="lazy" />
           </figure>
-          <div class="hotel-about__content reveal" style="--delay:80ms">
+          <div class="segment-story__content reveal" style="--delay:80ms">
             <p class="eyebrow">{config.season.eyebrow}</p>
             <h2>{config.season.title}</h2>
-            <div class="hotel-about__copy">
+            <div class="segment-story__copy">
               {config.season.copy.map((paragraph) => <p>{paragraph}</p>)}
             </div>
           </div>
         </div>
       </section>
 
-      <section id="jak-to-funguje" class="section process hotel-process section--tint">
+      <section id="jak-to-funguje" class="section process segment-process section--tint">
         <div class="wrap">
           <div class="section-heading reveal">
             <h2>{config.process.title}</h2>
             <p class="lead">{config.process.copy}</p>
           </div>
-          <ol class="steps hotel-steps">
+          <ol class="steps segment-steps">
             {config.process.steps.map((step, index) => (
-              <li class="step reveal" style={`--delay:${index * 80}ms`}>
+              <li class="step reveal" style={`--delay:${index * industryRevealStagger}ms`}>
                 <img class="reveal--media" src={step.image} alt="" loading="lazy" />
                 <span class="step__number">{step.number}</span>
                 <h3>{step.title}</h3>
@@ -196,6 +148,8 @@ const { config } = Astro.props;
           </ol>
         </div>
       </section>
+
+      <IndustryCta title={config.cta.title} copy={config.cta.copy} />
 
       <section id="faq" class="section faq">
         <div class="wrap faq__layout">
@@ -232,12 +186,11 @@ const { config } = Astro.props;
             <div class="form-heading"><h3>Řekněte nám o svém provozu</h3></div>
             <label>Typ provozu
               <select name="provoz" required>
-                <option value={config.formType} selected>{config.formType}</option>
-                <option>Penzion / apartmány</option><option>Horská chata / chalupa</option><option>Restaurace / gastro</option><option>Jiný provoz</option>
+                {industryTypes.map((type) => <option value={type} selected={type === config.formType}>{type}</option>)}
               </select>
             </label>
             <label>Jméno / firma
-              <input name="jmeno" autocomplete="name" placeholder="Jan Novák / Hotel Krkonoše" required />
+              <input name="jmeno" autocomplete="name" placeholder="Jan Novák / název provozu" required />
             </label>
             <div class="form-row">
               <label>Telefon<input type="tel" name="telefon" autocomplete="tel" placeholder="+420 777 000 000" required /></label>

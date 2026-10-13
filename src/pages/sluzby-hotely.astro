@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import type { SegmentPageConfig } from '../types/industry';
 import SegmentLandingPage from '../components/SegmentLandingPage.astro';
 
 const hotelWellness = {
@@ -57,6 +57,10 @@ const hotelWellness = {
       { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/services/hotels/step-4.webp' },
     ],
   },
+  cta: {
+    title: 'Domluvme péči o prádlo vašeho hotelu',
+    copy: 'Napište nám, jak funguje váš hotel nebo wellness. Společně nastavíme rozsah praní a pravidelný svoz.',
+  },
   faqs: [
     ['Jak často prádlo svážíte?', 'Četnost svozu nastavíme podle obsazenosti, objemu prádla a provozního režimu vašeho hotelu.'],
     ['Zvládnete vyšší objemy během hlavní sezóny?', 'Ano. Kapacitu a harmonogram plánujeme s ohledem na sezónní špičky v Krkonoších.'],
@@ -68,7 +72,7 @@ const hotelWellness = {
   faqIntro: 'Praktické informace o praní a svozu pro hotely a wellness provozy.',
   formType: 'Hotel / wellness',
   formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
-};
+} satisfies SegmentPageConfig;
 ---
 
 <SegmentLandingPage config={hotelWellness} />

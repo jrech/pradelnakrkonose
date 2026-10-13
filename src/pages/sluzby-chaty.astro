@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import type { SegmentPageConfig } from '../types/industry';
 import SegmentLandingPage from '../components/SegmentLandingPage.astro';
 
 const chaty = {
@@ -57,6 +57,10 @@ const chaty = {
       { number: '04', title: 'Čisté prádlo zpět', copy: 'Čisté prádlo přivezeme zpět podle domluveného režimu.', image: '/images/step-4.webp' },
     ],
   },
+  cta: {
+    title: 'Domluvme svoz pro vaši chatu',
+    copy: 'Napište nám, kde se vaše chata či chalupa nachází a jak často se střídají hosté. Navrhneme vhodný režim svozu.',
+  },
   faqs: [
     ['Lze svoz nastavit podle turnusů hostů?', 'Ano. Termíny nastavíme podle střídání hostů, víkendů a sezónního provozu.'],
     ['Svážíte prádlo i z menších ubytovacích zařízení?', 'Ano. Konkrétní režim a trasu domluvíme podle místa a objemu prádla.'],
@@ -68,7 +72,7 @@ const chaty = {
   faqIntro: 'Praktické informace o praní a svozu pro chaty a chalupy.',
   formType: 'Horská chata / chalupa',
   formNotePlaceholder: 'Např. množství prádla, četnost svozu nebo s čím vám můžeme pomoct.',
-};
+} satisfies SegmentPageConfig;
 ---
 
 <SegmentLandingPage config={chaty} />
